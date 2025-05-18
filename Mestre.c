@@ -9,15 +9,17 @@ int main()
     int Nascimento;
     char Tutorial[20];
 
+        printf("\n    ===== SUPER TRUNFO =====\n");
+        
     // Pergunta o nome
-    printf("Qual é o seu nome? ");
+    printf("Olá novo jogador. Qual é o seu nome? ");
     if (scanf(" %[^\n]", Nome) != 1) {
         printf("Erro ao ler o nome.\n");
         return 1;
     }
 
     // Pergunta a idade
-    printf("Certo, nome bonito o seu! Qual é a sua idade? ");
+    printf("Nome bonito o seu! Qual é a sua idade? ");
     if (scanf("%d", &Idade) != 1) {
         printf("Erro ao ler a idade.\n");
         return 1;
@@ -56,17 +58,56 @@ int main()
     }
 
     // Informações das cidades
-    char *Cidades[] = {"Petrópolis", "Caucaia", "São Paulo", "Paris"};
-    char *Paises[] = {"Brasil", "Brasil", "Brasil", "França"};
+    char *Cidades[] = {"Petrópolis", "Caucaia", "São Paulo", "Paris", "Tóquio", "Cidade do Cabo", "Toronto", "Barcelona"};
+char *Paises[] = {"Brasil", "Brasil", "Brasil", "França", "Japão", "África do Sul", "Canadá", "Espanha"};
 
-    int Populacoes[] = {278881, 355679, 11451999, 2104154};
-    float Areas[] = {795.798, 1223.246, 1521.202, 105};
-    float PIBs[] = {51.003, 28.229, 66.872, 5.150};
-    int PontosTuristicos[] = {15, 12, 60, 100};
+int Populacoes[] = {
+    278881,      // Petrópolis
+    355679,      // Caucaia
+    11451999,    // São Paulo
+    2104154,     // Paris
+    8970000,     // Tóquio (cidade)
+    4600000,     // Cidade do Cabo (região metropolitana)
+    2790000,     // Toronto (cidade)
+    1600000      // Barcelona (cidade)
+};
+
+float Areas[] = {
+    795.798,     // Petrópolis
+    1223.246,    // Caucaia
+    1521.202,    // São Paulo
+    105.0,       // Paris
+    2194.07,     // Tóquio
+    2461.0,      // Cidade do Cabo
+    630.2,       // Toronto
+    101.9        // Barcelona
+};
+
+float PIBs[] = {
+    51.003,      // Petrópolis
+    28.229,      // Caucaia
+    66.872,      // São Paulo
+    5.150,       // Paris (valor simbólico, pois o PIB real é muito maior)
+    2000.0,      // Tóquio (estimado, em bilhões USD)
+    335.0,       // Cidade do Cabo (estimado)
+    400.0,       // Toronto (estimado)
+    177.0        // Barcelona (estimado)
+};
+
+int PontosTuristicos[] = {
+    15,          // Petrópolis
+    12,          // Caucaia
+    60,          // São Paulo
+    100,         // Paris
+    90,          // Tóquio
+    70,          // Cidade do Cabo
+    85,          // Toronto
+    75           // Barcelona
+};
 
     // Cálculo da densidade demográfica
     float Densidades[4];
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 8; i++) {
         Densidades[i] = Populacoes[i] / Areas[i];
     }
 
@@ -76,11 +117,15 @@ int main()
     printf("2 - %s\n", Cidades[1]);
     printf("3 - %s\n", Cidades[2]);
     printf("4 - %s\n", Cidades[3]);
+    printf("5 - %s\n", Cidades[4]);
+    printf("6 - %s\n", Cidades[5]);
+    printf("7 - %s\n", Cidades[6]);
+    printf("8 - %s\n", Cidades[7]);
 
     // Escolha do jogador 1
     printf("\nJogador 1, escolha sua cidade: ");
     int Escolha1;
-    if (scanf("%d", &Escolha1) != 1 || Escolha1 < 1 || Escolha1 > 4) {
+    if (scanf("%d", &Escolha1) != 1 || Escolha1 < 1 || Escolha1 > 8) {
         printf("Opção inválida!\n");
         return 1;
     }
@@ -93,8 +138,9 @@ int main()
 
     // Escolha do jogador 2
     printf("\nJogador 2, escolha sua cidade: ");
+
     int Escolha2;
-    if (scanf("%d", &Escolha2) != 1 || Escolha2 < 1 || Escolha2 > 4) {
+    if (scanf("%d", &Escolha2) != 1 || Escolha2 < 1 || Escolha2 > 8) {
         printf("Opção inválida!\n");
         return 1;
     }
@@ -201,4 +247,3 @@ int main()
 
     return 0;
 }
-
