@@ -8,7 +8,7 @@ int main() {
     int Nascimento;
     char Tutorial[10];
 
-    // Carta 1
+    // Dados da Carta 1
     char Estado1;
     char Codigo1[4];
     char NomeCidade1[50];
@@ -16,10 +16,8 @@ int main() {
     float Area1;
     float PIB1;
     int PontosTuristicos1;
-    float Densidade1;
-    float PIBPerCapita1;
 
-    // Carta 2
+    // Dados da Carta 2
     char Estado2;
     char Codigo2[4];
     char NomeCidade2[50];
@@ -27,27 +25,41 @@ int main() {
     float Area2;
     float PIB2;
     int PontosTuristicos2;
-    float Densidade2;
-    float PIBPerCapita2;
 
     // Boas-vindas
     printf("\n    ===== SUPER TRUNFO =====\n");
 
-    // Entrada dos dados do jogador
+    // Pergunta o nome
     printf("Olá novo jogador. Qual é o seu nome? ");
-    scanf(" %[^\n]", Nome);
+    if (scanf(" %[^\n]", Nome) != 1) {
+        printf("Erro ao ler o nome.\n");
+        return 1;
+    }
 
+    // Pergunta a idade
     printf("Nome bonito o seu! Qual é a sua idade? ");
-    scanf("%d", &Idade);
-    while (getchar() != '\n');
+    if (scanf("%d", &Idade) != 1) {
+        printf("Erro ao ler a idade.\n");
+        return 1;
+    }
+    while (getchar() != '\n'); // Limpa o Enter
 
+    // Pergunta o ano de nascimento
     printf("Quando você nasceu? ");
-    scanf("%d", &Nascimento);
-    while (getchar() != '\n');
+    if (scanf("%d", &Nascimento) != 1) {
+        printf("Erro ao ler o ano de nascimento.\n");
+        return 1;
+    }
+    while (getchar() != '\n'); // Limpa o Enter
 
+    // Pergunta se deseja o tutorial
     printf("Deseja receber o tutorial? (Sim ou Não) ");
-    scanf(" %[^\n]", Tutorial);
+    if (scanf(" %[^\n]", Tutorial) != 1) {
+        printf("Erro ao ler resposta.\n");
+        return 1;
+    }
 
+    // Exibe o tutorial se o jogador respondeu "Sim"
     if (strcmp(Tutorial, "Sim") == 0) {
         printf("\n===== TUTORIAL =====\n");
         printf("No jogo Super Trunfo - Países, cada jogador recebe cartas de cidades com informações como população, área, PIB e pontos turísticos.\n");
@@ -55,9 +67,11 @@ int main() {
         printf("Quem tiver o maior valor vence e fica com a carta do outro jogador.\n");
         printf("O jogo continua até que um dos jogadores tenha todas as cartas.\n");
         printf("Dica: escolha bem suas jogadas e tente adivinhar a estratégia do adversário!\n\n");
+    } else {
+        printf("Ok! Vamos prosseguir então.\n\n");
     }
 
-    // Carta 1
+    // Cadastro da Carta 1
     printf("Cadastro da Carta 1:\n");
 
     printf("Informe o estado (letra de A a H): ");
@@ -87,11 +101,7 @@ int main() {
     scanf("%d", &PontosTuristicos1);
     while (getchar() != '\n');
 
-    // Cálculo carta 1
-    Densidade1 = Populacao1 / Area1;
-    PIBPerCapita1 = (PIB1 * 1000000000) / Populacao1;
-
-    // Carta 2
+    // Cadastro da Carta 2
     printf("\nCadastro da Carta 2:\n");
 
     printf("Informe o estado (letra de A a H): ");
@@ -121,11 +131,7 @@ int main() {
     scanf("%d", &PontosTuristicos2);
     while (getchar() != '\n');
 
-    // Cálculo carta 2
-    Densidade2 = Populacao2 / Area2;
-    PIBPerCapita2 = (PIB2 * 1000000000) / Populacao2;
-
-    // Saída formatada
+    // Exibição das Cartas
     printf("\n==============================\n");
 
     printf("Carta 1:\n");
@@ -136,8 +142,6 @@ int main() {
     printf("Área: %.2f km²\n", Area1);
     printf("PIB: %.2f bilhões de reais\n", PIB1);
     printf("Número de Pontos Turísticos: %d\n", PontosTuristicos1);
-    printf("Densidade Populacional: %.2f hab/km²\n", Densidade1);
-    printf("PIB per Capita: %.2f reais\n", PIBPerCapita1);
 
     printf("\nCarta 2:\n");
     printf("Estado: %c\n", Estado2);
@@ -147,8 +151,6 @@ int main() {
     printf("Área: %.2f km²\n", Area2);
     printf("PIB: %.2f bilhões de reais\n", PIB2);
     printf("Número de Pontos Turísticos: %d\n", PontosTuristicos2);
-    printf("Densidade Populacional: %.2f hab/km²\n", Densidade2);
-    printf("PIB per Capita: %.2f reais\n", PIBPerCapita2);
 
     printf("==============================\n");
 
