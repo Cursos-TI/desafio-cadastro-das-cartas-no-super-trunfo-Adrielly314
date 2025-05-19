@@ -1,112 +1,90 @@
 #include <stdio.h>
-#include <string.h>
 
-int main() 
-{
-    // Variáveis do jogador
-    char Nome[60];
-    int Idade;
-    int Nascimento;
-    char Tutorial[20]; // Aumenta o tamanho para garantir que "Sim" ou "Não" sejam lidos corretamente
+int main() {
+    // Dados da Carta 1
+    char Estado1;
+    char Codigo1[4];
+    char NomeCidade1[50];
+    int Populacao1;
+    float Area1;
+    float PIB1;
+    int PontosTuristicos1;
 
-    // Pergunta o nome
-    printf("Qual é o seu nome? ");
-    if (scanf(" %[^\n]", Nome) != 1) {
-        printf("Erro ao ler o nome.\n");
-        return 1;  // Retorna 1 para indicar erro
-    }
+    // Dados da Carta 2
+    char Estado2;
+    char Codigo2[4];
+    char NomeCidade2[50];
+    int Populacao2;
+    float Area2;
+    float PIB2;
+    int PontosTuristicos2;
 
-    // Pergunta a idade
-    printf("Certo, nome bonito o seu! Qual é a sua idade? ");
-    if (scanf("%d", &Idade) != 1) {
-        printf("Erro ao ler a idade.\n");
-        return 1;
-    }
+    // Cadastro da Carta 1
+    printf("Cadastro da Carta 1:\n");
+    printf("Informe o estado (letra de A a H): ");
+    scanf(" %c", &Estado1);
 
-    // Pergunta o ano de nascimento
-    printf("Quando você nasceu? ");
-    if (scanf("%d", &Nascimento) != 1) {
-        printf("Erro ao ler o ano de nascimento.\n");
-        return 1;
-    }
+    printf("Informe o código da carta (ex: A01): ");
+    scanf(" %s", Codigo1);
 
-    // Limpa o buffer do teclado
-    while (getchar() != '\n');  // Usar isso pode funcionar, mas fique atento a comportamentos imprevistos
+    printf("Informe o nome da cidade: ");
+    scanf(" %[^\n]", NomeCidade1);
 
-    // Pergunta se deseja o tutorial
-    printf("Deseja receber o tutorial? (Sim ou Não) ");
-    if (scanf(" %[^\n]", Tutorial) != 1) {
-        printf("Erro ao ler resposta.\n");
-        return 1;
-    }
+    printf("Informe a população: ");
+    scanf("%d", &Populacao1);
 
-    // Exibe o tutorial se o jogador respondeu "Sim"
-    if (strcmp(Tutorial, "Sim") == 0) 
-    { 
-        printf("\n===== TUTORIAL =====\n");
-        printf("No jogo Super Trunfo - Países, cada jogador recebe cartas de cidades com informações como população, área, PIB e pontos turísticos.\n");
-        printf("A cada rodada, um jogador escolhe uma característica de sua carta e compara com a do adversário.\n");
-        printf("Quem tiver o maior valor vence e fica com a carta do outro jogador.\n");
-        printf("O jogo continua até que um dos jogadores tenha todas as cartas.\n");
-        printf("Dica: escolha bem suas jogadas e tente adivinhar a estratégia do adversário!\n\n");
-    } 
-    else 
-    {
-        printf("Ok! Vamos prosseguir então.\n\n");
-    }
+    printf("Informe a área em km²: ");
+    scanf("%f", &Area1);
 
-    // Informações das cidades
-    char CidadeA[] = "Petrópolis";
-    char CidadeB[] = "Caucaia";
+    printf("Informe o PIB (em bilhões de reais): ");
+    scanf("%f", &PIB1);
 
-    int PopulacaoA = 278881;
-    int PopulacaoB = 355679;
+    printf("Informe o número de pontos turísticos: ");
+    scanf("%d", &PontosTuristicos1);
 
-    float AreaA = 795.798;
-    float AreaB = 1223.246;
+    // Cadastro da Carta 2
+    printf("\nCadastro da Carta 2:\n");
+    printf("Informe o estado (letra de A a H): ");
+    scanf(" %c", &Estado2);
 
-    float PIBA = 51.003;
-    float PIBB = 28.229;
+    printf("Informe o código da carta (ex: B03): ");
+    scanf(" %s", Codigo2);
 
-    int PontosTuristicosA = 15; // Estimativa de pontos turísticos em Petrópolis
-    int PontosTuristicosB = 12; // Estimativa de pontos turísticos em Caucaia
+    printf("Informe o nome da cidade: ");
+    scanf(" %[^\n]", NomeCidade2);
 
-    // Mostra as cidades disponíveis
-    printf("As cidades disponíveis são:\n");
-    printf("1 - %s\n", CidadeA);
-    printf("2 - %s\n", CidadeB);
+    printf("Informe a população: ");
+    scanf("%d", &Populacao2);
 
-    // Escolha do jogador
-    int Escolha;
-    printf("Qual cidade você deseja escolher? (Digite 1 para Petrópolis ou 2 para Caucaia): ");
-    if (scanf("%d", &Escolha) != 1) {
-        printf("Erro ao ler a escolha da cidade.\n");
-        return 1;
-    }
+    printf("Informe a área em km²: ");
+    scanf("%f", &Area2);
 
-    // Exibe os detalhes da cidade escolhida
-    if (Escolha == 1) 
-    {
-        printf("\n===== CARTA ESCOLHIDA =====\n");
-        printf("Cidade: %s\n", CidadeA);
-        printf("População: %d habitantes\n", PopulacaoA);
-        printf("Área: %.2f km²\n", AreaA);
-        printf("PIB: R$ %.2f bilhões\n", PIBA);
-        printf("Pontos Turísticos: %d\n", PontosTuristicosA);
-    } 
-    else if (Escolha == 2) 
-    {
-        printf("\n===== CARTA ESCOLHIDA =====\n");
-        printf("Cidade: %s\n", CidadeB);
-        printf("População: %d habitantes\n", PopulacaoB);
-        printf("Área: %.2f km²\n", AreaB);
-        printf("PIB: R$ %.2f bilhões\n", PIBB);
-        printf("Pontos Turísticos: %d\n", PontosTuristicosB);
-    }
-    else 
-    {
-        printf("\nOpção inválida! Escolha 1 ou 2.\n");
-    }
+    printf("Informe o PIB (em bilhões de reais): ");
+    scanf("%f", &PIB2);
+
+    printf("Informe o número de pontos turísticos: ");
+    scanf("%d", &PontosTuristicos2);
+
+    // Exibição das Cartas
+    printf("\n==============================\n");
+    printf("Carta 1:\n");
+    printf("Estado: %c\n", Estado1);
+    printf("Código: %s\n", Codigo1);
+    printf("Nome da Cidade: %s\n", NomeCidade1);
+    printf("População: %d\n", Populacao1);
+    printf("Área: %.2f km²\n", Area1);
+    printf("PIB: %.2f bilhões de reais\n", PIB1);
+    printf("Número de Pontos Turísticos: %d\n", PontosTuristicos1);
+
+    printf("\nCarta 2:\n");
+    printf("Estado: %c\n", Estado2);
+    printf("Código: %s\n", Codigo2);
+    printf("Nome da Cidade: %s\n", NomeCidade2);
+    printf("População: %d\n", Populacao2);
+    printf("Área: %.2f km²\n", Area2);
+    printf("PIB: %.2f bilhões de reais\n", PIB2);
+    printf("Número de Pontos Turísticos: %d\n", PontosTuristicos2);
+    printf("==============================\n");
 
     return 0;
 }
